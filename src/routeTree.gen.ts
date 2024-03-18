@@ -13,6 +13,11 @@ import { createFileRoute } from '@tanstack/react-router'
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
+import { Route as PostsImport } from './routes/posts'
+import { Route as ProfileRouteImport } from './routes/profile/route'
+import { Route as PostRouteImport } from './routes/post/route'
+import { Route as PostsPostIdImport } from './routes/posts_.$postId'
+import { Route as PostsPostIdDeepImport } from './routes/posts_.$postId_.deep'
 
 // Create Virtual Routes
 
@@ -26,10 +31,35 @@ const AboutLazyRoute = AboutLazyImport.update({
   getParentRoute: () => rootRoute,
 } as any).lazy(() => import('./routes/about.lazy').then((d) => d.Route))
 
+const PostsRoute = PostsImport.update({
+  path: '/posts',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const ProfileRouteRoute = ProfileRouteImport.update({
+  path: '/profile',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const PostRouteRoute = PostRouteImport.update({
+  path: '/post',
+  getParentRoute: () => rootRoute,
+} as any)
+
 const IndexLazyRoute = IndexLazyImport.update({
   path: '/',
   getParentRoute: () => rootRoute,
 } as any).lazy(() => import('./routes/index.lazy').then((d) => d.Route))
+
+const PostsPostIdRoute = PostsPostIdImport.update({
+  path: '/posts/$postId',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const PostsPostIdDeepRoute = PostsPostIdDeepImport.update({
+  path: '/posts/$postId/deep',
+  getParentRoute: () => rootRoute,
+} as any)
 
 // Populate the FileRoutesByPath interface
 
@@ -39,8 +69,28 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexLazyImport
       parentRoute: typeof rootRoute
     }
+    '/post': {
+      preLoaderRoute: typeof PostRouteImport
+      parentRoute: typeof rootRoute
+    }
+    '/profile': {
+      preLoaderRoute: typeof ProfileRouteImport
+      parentRoute: typeof rootRoute
+    }
+    '/posts': {
+      preLoaderRoute: typeof PostsImport
+      parentRoute: typeof rootRoute
+    }
     '/about': {
       preLoaderRoute: typeof AboutLazyImport
+      parentRoute: typeof rootRoute
+    }
+    '/posts/$postId': {
+      preLoaderRoute: typeof PostsPostIdImport
+      parentRoute: typeof rootRoute
+    }
+    '/posts/$postId/deep': {
+      preLoaderRoute: typeof PostsPostIdDeepImport
       parentRoute: typeof rootRoute
     }
   }
@@ -48,6 +98,14 @@ declare module '@tanstack/react-router' {
 
 // Create and export the route tree
 
-export const routeTree = rootRoute.addChildren([IndexLazyRoute, AboutLazyRoute])
+export const routeTree = rootRoute.addChildren([
+  IndexLazyRoute,
+  PostRouteRoute,
+  ProfileRouteRoute,
+  PostsRoute,
+  AboutLazyRoute,
+  PostsPostIdRoute,
+  PostsPostIdDeepRoute,
+])
 
 /* prettier-ignore-end */
