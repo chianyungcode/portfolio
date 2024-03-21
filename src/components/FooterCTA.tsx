@@ -1,4 +1,3 @@
-import { Linkedin, LinkedinIcon } from "lucide-react";
 import { BsGithub, BsLinkedin, BsTwitterX } from "react-icons/bs";
 import { FaFacebook } from "react-icons/fa";
 
