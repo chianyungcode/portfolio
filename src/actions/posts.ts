@@ -1,3 +1,5 @@
+import axios from "axios";
+
 export interface Post {
   userId: string;
   id: string;
@@ -7,10 +9,10 @@ export interface Post {
 
 export const fetchPost = async (postId: string) => {
   try {
-    const response = await fetch(
+    const response = await axios.get(
       `https://jsonplaceholder.typicode.com/todos/${postId}`
     );
-    const post = await response.json();
+    const post = await response.data;
 
     return post;
   } catch (error) {
@@ -20,9 +22,11 @@ export const fetchPost = async (postId: string) => {
 
 export const fetchPosts = async () => {
   try {
-    const response = await fetch("https://jsonplaceholder.typicode.com/todos");
+    const response = await axios.get<Post[]>(
+      "https://jsonplaceholder.typicode.com/todos"
+    );
 
-    const data: Post[] = await response.json();
+    const data = await response.data;
 
     return data;
   } catch (error) {

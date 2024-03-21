@@ -1,4 +1,4 @@
-import { fetchPost } from "../posts";
+import { fetchPost } from "../actions/posts";
 import {
   ErrorComponent,
   ErrorComponentProps,

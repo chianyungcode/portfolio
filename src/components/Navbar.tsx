@@ -1,9 +1,23 @@
 import { Link } from "@tanstack/react-router";
+import { motion } from "framer-motion";
+import {
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  UserButton,
+} from "@clerk/clerk-react";
 
 const Navbar = () => {
   return (
-    <header className="h-20 w-full flex items-center inset-0  fixed z-[999]">
-      <div className="mx-auto max-w-[1216px] w-full backdrop-blur-sm border rounded-3xl border-gray-300 px-8 py-1 flex items-center justify-between">
+    <header className="h-20 w-full flex items-center inset-0 fixed z-[999]">
+      <motion.div
+        className="mx-auto max-w-[1216px] w-full backdrop-blur-sm border rounded-3xl border-gray-300 px-8 py-1 flex items-center justify-between"
+        whileHover={{ scale: 1.005, transition: { ease: "easeOut" } }}
+        whileTap={{ scale: 1.01, transition: { ease: "easeOut" } }}
+
+        // animate={{ x: 0 }}
+        // transition={{ ease: "easeOut", duration: 2 }}
+      >
         <h3 className="font-semibold text-xl">
           Chian Yung{" "}
           <span className="text-gray-400 font-normal text-md ml-1">
@@ -25,7 +39,14 @@ const Navbar = () => {
             Profile
           </Link>
         </div>
-      </div>
+
+        <SignedOut>
+          <SignInButton />
+        </SignedOut>
+        <SignedIn>
+          <UserButton />
+        </SignedIn>
+      </motion.div>
     </header>
   );
 };
