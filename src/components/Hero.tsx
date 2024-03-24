@@ -9,7 +9,7 @@ const Hero = () => {
         <div className="grid grid-cols-8 ">
           <div className="flex justify-center col-span-2">
             <img
-              src="https://avatars.githubusercontent.com/u/17928779?v=4"
+              src="/public/images/image-profile.png"
               alt="Chian Yung"
               className="rounded-full  w-48 h-48 grayscale"
             />

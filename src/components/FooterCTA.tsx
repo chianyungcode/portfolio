@@ -1,5 +1,6 @@
 import { BsGithub, BsLinkedin, BsTwitterX } from "react-icons/bs";
 import { FaFacebook } from "react-icons/fa";
+import { Button } from "./ui/button";
 
 const FooterCTA = () => {
   return (
@@ -16,6 +17,8 @@ const FooterCTA = () => {
         <button className="rounded-[2.25rem] py-3 px-6 bg-black text-white">
           Start a project
         </button>
+
+        <Button variant="outline">BUt</Button>
         <hr className="border-gray-200 border-1 w-full" />
         <div className="flex w-full flex-row justify-between items-start">
           <div className="space-y-2">

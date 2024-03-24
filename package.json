@@ -11,17 +11,22 @@
   },
   "dependencies": {
     "@clerk/clerk-react": "^4.30.7",
+    "@radix-ui/react-dialog": "^1.0.5",
+    "@radix-ui/react-slot": "^1.0.2",
     "@tanstack/react-query": "^5.28.4",
     "@tanstack/react-router": "^1.19.13",
     "@tanstack/router-devtools": "^1.19.13",
     "axios": "^1.6.8",
+    "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "framer-motion": "^11.0.14",
-    "lucide-react": "^0.359.0",
+    "lucide-react": "^0.363.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^5.0.1",
-    "tailwind-merge": "^2.2.2"
+    "tailwind-merge": "^2.2.2",
+    "tailwindcss-animate": "^1.0.7",
+    "vite-plugin-require": "^1.1.14"
   },
   "devDependencies": {
     "@tanstack/router-vite-plugin": "^1.19.6",
