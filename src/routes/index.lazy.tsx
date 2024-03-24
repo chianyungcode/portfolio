@@ -1,7 +1,7 @@
 import { createLazyFileRoute } from "@tanstack/react-router";
-import Hero from "../components/Hero";
 import KeySelling from "../components/KeySelling";
 import FooterCTA from "../components/FooterCTA";
+import HeroSection from "../components/HeroSection";
 
 export const Route = createLazyFileRoute("/")({
   component: Index,
@@ -10,7 +10,7 @@ export const Route = createLazyFileRoute("/")({
 function Index() {
   return (
     <>
-      <Hero />
+      <HeroSection />
       <KeySelling />
       <FooterCTA />
     </>
